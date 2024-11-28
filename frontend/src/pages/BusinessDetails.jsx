@@ -25,7 +25,7 @@ const BusinessDetails = () => {
   const fetchBusinessDetails = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/businesses/${id}`
+        `https://local-busieness-app.onrender.com/api/businesses/${id}`
       );
       setBusiness(response.data);
     } catch (error) {
@@ -38,7 +38,7 @@ const BusinessDetails = () => {
   const fetchReviews = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/reviews/${id}`
+        `https://local-busieness-app.onrender.com/api/reviews/${id}`
       );
       setReviews(response.data);
     } catch (error) {
@@ -51,9 +51,13 @@ const BusinessDetails = () => {
     setSubmitLoading(true);
     try {
       const token = localStorage.getItem("token");
-      await axios.post(`http://localhost:3000/api/reviews/${id}`, newReview, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await axios.post(
+        `https://local-busieness-app.onrender.com/api/reviews/${id}`,
+        newReview,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setNewReview({ rating: 5, comment: "" });
       fetchReviews();
     } catch (error) {

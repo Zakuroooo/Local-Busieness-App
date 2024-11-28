@@ -173,9 +173,12 @@ const AdminDashboard = () => {
     if (window.confirm("Are you sure you want to delete this business?")) {
       try {
         const token = localStorage.getItem("token");
-        await axios.delete(`http://localhost:3000/api/businesses/${id}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        await axios.delete(
+          `https://local-busieness-app.onrender.com/api/businesses/${id}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
         fetchBusinesses();
       } catch (error) {
         console.error("Error deleting business:", error);
