@@ -102,7 +102,7 @@ const AdminDashboard = () => {
       if (isEditing && editId) {
         // Update existing business
         response = await axios.put(
-          `http://localhost:3000/api/businesses/${editId}`,
+          `https://local-busieness-app.onrender.com/api/businesses/${editId}`,
           businessData,
           {
             headers: {
