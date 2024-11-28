@@ -16,7 +16,9 @@ const Dashboard = () => {
   const fetchBusinesses = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.get("http://localhost:3000/api/businesses");
+      const { data } = await axios.get(
+        "https://local-busieness-app.onrender.com/api/businesses"
+      );
       setBusinesses(data);
     } catch (err) {
       console.error("Error fetching businesses:", err);
@@ -29,7 +31,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        "http://localhost:3000/api/users/profile",
+        "https://local-busieness-app.onrender.com/api/users/profile",
         {
           headers: { Authorization: `Bearer ${token}` },
         }

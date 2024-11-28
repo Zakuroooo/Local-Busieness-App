@@ -32,7 +32,7 @@ const AdminDashboard = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        "http://localhost:3000/api/businesses/admin/my-businesses",
+        "https://local-busieness-app.onrender.com/api/businesses/admin/my-businesses",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -45,7 +45,9 @@ const AdminDashboard = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/categories");
+      const response = await axios.get(
+        "https://local-busieness-app.onrender.com/api/categories"
+      );
       console.log("Categories response:", response.data);
       setCategoryOptions(response.data);
     } catch (error) {
@@ -57,7 +59,7 @@ const AdminDashboard = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        "http://localhost:3000/api/users/profile",
+        "https://local-busieness-app.onrender.com/api/users/profile",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -113,7 +115,7 @@ const AdminDashboard = () => {
       } else {
         // Create new business
         response = await axios.post(
-          "http://localhost:3000/api/businesses",
+          "https://local-busieness-app.onrender.com/api/businesses",
           businessData,
           {
             headers: {
