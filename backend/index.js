@@ -21,13 +21,13 @@ app.use("/api/businesses", businessRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/categories", categoryRoutes);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, async () => {
-  console.log(`Server is running on port ${PORT}`);
-  await createDefaultCategories();
-});
-
 // Error handling middleware should be last
 app.use(errorHandler);
 
+// Ensure categories exist before handling requests
+createDefaultCategories()
+  .then(() => console.log("Default categories ensured"))
+  .catch((err) => console.error("Error creating categories:", err));
+
+// ✅ Export for Vercel Serverless Function
 module.exports = app;
