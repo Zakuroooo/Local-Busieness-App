@@ -29,3 +29,5 @@ app.listen(PORT, async () => {
 
 // Error handling middleware should be last
 app.use(errorHandler);
+
+module.exports = app;
